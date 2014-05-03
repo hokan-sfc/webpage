@@ -15,6 +15,7 @@
         <!-- Scripts -->
 
         <!-- Cross browser settings -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="stylesheet" type="text/css" href="share/lib/normalize.css">
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -28,27 +29,26 @@
 
             <header>
                 <h1>星空鑑賞サークル</h1>
-                <nav><a href="#sign_in">サインイン</a></nav>
+                <nav><a href="#">メンバーページ</a></nav>
             </header>
 
             <section>
                 <nav>
                     <ul>
-                        <li><a href="#about">About us.</a></li>
-                        <li><a href="#event">Activities.</a></li>
-                        <li><a href="#contact">Contact.</a></li>
+                        <li><a href="#" id="about">About</a></li>
+                        <li><a href="#" id="events">Events</a></li>
+                        <li><a href="#" id="contact">Contact</a></li>
                     </ul>
                 </nav>
             </section>
 
-            <aside>
-                <h1>Twitter</h1>
-                <a class="twitter-timeline" href="https://twitter.com/HokanSFC" data-widget-id="462406282775756800">@HokanSFC からのツイート</a>
-                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-            </aside>
-
             <footer>
+                <aside>
+                    <a class="twitter-timeline" width="400px" height="300px" href="https://twitter.com/HokanSFC" data-widget-id="462406282775756800">@HokanSFC からのツイート</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </aside>
             </footer>
+
 
         </div>
     </body>
