@@ -80,13 +80,13 @@
     }
 }
 #about {
-    background-image: url("about.jpg");
+    background-image: url("img/about.jpg");
 }
 #events {
-    background-image: url("events.jpg");
+    background-image: url("img/events.jpg");
 }
 #contact {
-    background-image: url("contact.jpg");
+    background-image: url("img/contact.jpg");
 }
 
 /*
