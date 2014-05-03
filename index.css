@@ -18,6 +18,9 @@
 #main>header>* {
     display: table-cell;
 }
+#main>header>h1 {
+    font-size: 1.3em;
+}
 #main>header>nav {
     text-align: right;
     vertical-align: center;
@@ -62,6 +65,10 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    transition: opacity 0.4s ease-in-out 0;
+}
+#main>section>nav>ul>li>a:hover {
+    opacity: 0.8;
 }
 @media screen and (max-width: 768px) {
     #main>section>nav>ul>li {
@@ -86,4 +93,24 @@
  * Footer
  */
 #main>footer {
+    height: 18.8em;
+    margin-bottom: 3em;
+}
+#main>footer>* {
+    display: inline-block;
+    float: left;
+    width: 100%;
+    max-width: 446px;
+    height: inherit;
+    margin: 1em 0;
+}
+#main>footer>aside {
+    margin-right: 0.5em;
+}
+#main>footer>aside>* {
+    height: inherit;
+}
+#main>footer>section {
+    background-color: #34495e;
+    border-radius: 5px;
 }
