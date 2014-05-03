@@ -8,6 +8,33 @@
 }
 
 /*
+ * Header
+ */
+#main>header {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+#main>header>* {
+    display: table-cell;
+}
+#main>header>nav {
+    text-align: right;
+    vertical-align: center;
+}
+#main>header>nav>a {
+    font-size: 0.7em;
+    padding: 0.5em 0.8em;
+    background-color: #ecf0f1;
+    box-shadow: 1px 1px 0 0 #95a5a6;
+    border-radius: 5px;
+}
+#main>header>nav>a:hover {
+    background-color: #dce0e1;
+    box-shadow: 1px 1px 0 0 #859596 inset;
+}
+
+/*
  * Main navigation
  */
 #main>section>nav {
