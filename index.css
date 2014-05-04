@@ -4,7 +4,8 @@
 #main {
     width: 90%;
     max-width: 900px;
-    margin: 2em auto 0 auto;
+    margin: 0 auto;
+    padding-bottom: 3em;
 }
 
 /*
@@ -14,49 +15,55 @@
     display: table;
     table-layout: fixed;
     width: 100%;
+    padding-top: 2em;
 }
 #main>header>* {
     display: table-cell;
 }
+
 #main>header>h1 {
     font-size: 1.3em;
 }
+
 #main>header>nav {
     text-align: right;
     vertical-align: center;
 }
 #main>header>nav>a {
+    color: #fff;
     font-size: 0.7em;
     padding: 0.5em 0.8em;
-    background-color: #ecf0f1;
-    box-shadow: 1px 1px 0 0 #95a5a6;
-    border-radius: 5px;
+    background-color: #333;
+    border-radius: 3px;
+    transition: opacity 0.4s ease-in-out 0;
 }
 #main>header>nav>a:hover {
-    background-color: #dce0e1;
-    box-shadow: 1px 1px 0 0 #859596 inset;
+    opacity: 0.8;
 }
 
 /*
- * Main navigation
+ * Main column 1
  */
-#main>section>nav {
+#col1>nav {
     font-family: 'Nunito', sans-serif;
     font-size: 2.3em;
+    margin: 1em 0;
 }
-#main>section>nav>ul {
+#col1>nav>ul {
     display: table;
     table-layout: fixed;
     width: 100%;
 }
-#main>section>nav>ul>li {
+#col1>nav>ul>li {
     display: table-cell;
     height: 10.9em;
-    padding: 0.1em;
     text-align: right;
     vertical-align: top;
 }
-#main>section>nav>ul>li>a {
+#col1>nav>ul>li+li {
+    padding-left: 0.2em;
+}
+#col1>nav>ul>li>a {
     display: block;
     color: #fff;
     height: 9.9em;
@@ -67,16 +74,20 @@
     background-position: center;
     transition: opacity 0.4s ease-in-out 0;
 }
-#main>section>nav>ul>li>a:hover {
+#col1>nav>ul>li>a:hover {
     opacity: 0.8;
 }
-@media screen and (max-width: 768px) {
-    #main>section>nav>ul>li {
+@media screen and (max-width: 500px) {
+    #col1>nav>ul>li {
         display: block;
         height: 5em;
     }
-    #main>section>nav>ul>li>a {
+    #col1>nav>ul>li>a {
         height: 4em;
+    }
+    #col1>nav>ul>li+li {
+        padding-left: 0em;
+        padding-top: 0.2em;
     }
 }
 #about {
@@ -90,27 +101,84 @@
 }
 
 /*
- * Footer
+ * Main column 2
  */
-#main>footer {
+#col2 {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
     height: 18.8em;
     margin-bottom: 3em;
 }
-#main>footer>* {
-    display: inline-block;
-    float: left;
+#col2>* {
+    display: table-cell;
+    height: 100%;
+    vertical-align: top;
+}
+#col2>*+* {
+    padding-left: 0.4375em;
+}
+@media screen and (max-width: 500px) {
+    #col2 {
+        height: auto;
+    }
+    #col2>* {
+        display: block;
+        height: 18.8em;
+    }
+    #col2>*+* {
+        padding-left: 0;
+        padding-top: 2em;
+    }
+}
+
+#col2>aside>* {
+    height: inherit;
     width: 100%;
-    max-width: 446px;
-    height: inherit;
-    margin: 1em 0;
 }
-#main>footer>aside {
-    margin-right: 0.5em;
-}
-#main>footer>aside>* {
-    height: inherit;
-}
-#main>footer>section {
-    background-color: #34495e;
+
+#col2>section>div {
+    height: 100%;
+    background-image: url("img/pickup.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     border-radius: 5px;
+}
+#col2>section>div>div {
+    padding: 1.125em;
+}
+#col2>section>div>div>h1 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 2.3em;
+    color: #fff;
+}
+
+#col2>section>div>div>div {
+    margin-top: 1em;
+    overflow: scroll;
+}
+#col2>section article>h1 {
+    font-size: 1em;
+}
+#col2>section article>p {
+    font-size: 0.7em;
+}
+
+/*
+ * Footer
+ */
+body>footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #000;
+    width: 100%;
+    padding: 0.5em 1em;
+    opacity: 0.8;
+}
+body>footer>p {
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.8em;
+    text-align: center;
 }
