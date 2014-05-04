@@ -155,14 +155,29 @@
 }
 
 #col2>section>div>div>div {
-    margin-top: 1em;
+    color: #1c2e40;
+    height: 12.6em;
+    margin: 1em 0 0.7em 0;
     overflow: scroll;
 }
-#col2>section article>h1 {
-    font-size: 1em;
+#col2>section article {
+    display: table;
+    margin-bottom: 1em;
+}
+#col2>section article>* {
+    display: table-cell;
+}
+#col2>section article>div {
+    width: 6em;
+    height: 4em;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5px;
 }
 #col2>section article>p {
-    font-size: 0.7em;
+    padding-left: 1.5em;
+    font-size: 0.77em;
 }
 
 /*
