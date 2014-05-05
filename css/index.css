@@ -163,16 +163,16 @@
     /* for safari's GPU probrem */
     -webkit-font-smoothing: antialiased;
 }
-#col2>section>div>article {
+#col2>section>div>section {
     padding: 1em;
 }
-#col2>section>div>article>h1 {
+#col2>section>div>section>h1 {
     color: #fff;
     font-size: 1.1em;
     padding-bottom: 1em;
     text-align: center;
 }
-#col2>section>div>article>p {
+#col2>section>div>section>p {
     color: #1c2e40;
     font-size: 0.8em;
     text-indent: 1em;

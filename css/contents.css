@@ -1,0 +1,35 @@
+article.contents {
+    padding: 0 2em;
+    margin: 4em 0;
+}
+article.contents>div {
+    display: table;
+}
+article.contents>div>div {
+    display: table-cell;
+    vertical-align: middle;
+}
+article.contents>div>div.image {
+    width: 40%;
+}
+article.contents>div>div.image.right {
+    text-align: right;
+}
+article.contents>div>div.image.left {
+    text-align: left;
+}
+
+article.contents>h1 {
+    font-size: 1.3em;
+    padding-bottom: 1.1em;
+}
+article.contents>div>div>p {
+    font-size: 0.8em;
+    text-align: justify;
+    margin: 0.6em 0;
+}
+
+article.contents>div>div.image>img {
+    width: 85%;
+    border-radius: 7px;
+}
