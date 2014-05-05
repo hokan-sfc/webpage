@@ -1,0 +1,50 @@
+@font-face {
+    font-family: "mplus-1c-light";
+    src: url("../font/mplus-1c-light-sub.eot") format("eot");
+    src: url("../font/mplus-1c-light-sub.woff") format("woff");
+    src: url("../font/mplus-1c-light-sub.ttf") format("truetype");
+}
+
+html {
+    font-size: 75%;
+    height: 100%;
+}
+@media screen and (min-width: 768px) {
+    html {
+        font-size: 87.5%;
+    }
+}
+@media screen and (min-width: 1024px) {
+    html {
+        font-size: 100%;
+    }
+}
+
+body {
+    height: 100%;
+}
+
+h1,p,ul {
+    margin: 0;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#main {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 3em;
+}
