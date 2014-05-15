@@ -10,7 +10,7 @@ article.contents>div>div {
     vertical-align: middle;
 }
 article.contents>div>div.image {
-    width: 40%;
+    width: 30%;
 }
 article.contents>div>div.image.right {
     text-align: right;
@@ -28,8 +28,20 @@ article.contents>div>div>p {
     text-align: justify;
     margin: 0.6em 0;
 }
-
 article.contents>div>div.image>img {
     width: 85%;
     border-radius: 7px;
+}
+
+@media screen and (max-width: 650px) {
+    article.contents>div>div {
+        display: block;
+    }
+    article.contents>div>div.image {
+        margin-top: 2em;
+        width: 100%;
+    }
+    article.contents>div>div.image>img {
+        width: 100%;
+    }
 }
