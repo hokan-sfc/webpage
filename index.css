@@ -144,7 +144,7 @@
 
 #col2>aside>* {
     height: inherit;
-    width: 100%;
+    width: 100% !important;
 }
 
 #col2>section {
