@@ -2,7 +2,7 @@
     var loadEvent = function(){
         var iPad = /iPad/.test(navigator.userAgent);
         if(iPad){
-            document.getElementById('twitter-widget-0').style.height = '300px';
+            document.getElementById('twitter-widget').style.height = '300px';
         }
     };
 

@@ -23,6 +23,9 @@ article.contents>h1 {
     font-size: 1.3em;
     padding-bottom: 1.1em;
 }
+article.contents>div>div:first-child {
+    padding-right: 2em;
+}
 article.contents>div>div>p {
     font-size: 0.8em;
     text-align: justify;
@@ -36,6 +39,7 @@ article.contents>div>div.image>img {
 @media screen and (max-width: 650px) {
     article.contents>div>div {
         display: block;
+        padding: 0;
     }
     article.contents>div>div.image {
         margin-top: 2em;
