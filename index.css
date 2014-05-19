@@ -87,6 +87,9 @@
     /* for IE 8 */
     filter: Alpha(opacity=80);
 }
+#col1>nav>ul>li>a>span {
+    font-size: 0.74em;
+}
 @media screen and (max-width: 650px) {
     #col1>nav>ul>li {
         display: block;
