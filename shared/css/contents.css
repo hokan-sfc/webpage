@@ -2,50 +2,56 @@ article.contents {
     padding: 0 2em;
     margin: 4em 0;
 }
-article.contents>div {
-    display: table;
-}
-article.contents>div>div {
-    display: table-cell;
-    vertical-align: middle;
-}
-article.contents>div>div.image {
-    width: 30%;
-}
-article.contents>div>div.image.right {
-    text-align: right;
-}
-article.contents>div>div.image.left {
-    text-align: left;
-}
-
 article.contents>h1 {
     font-size: 1.3em;
     padding-bottom: 1.1em;
 }
-article.contents>div>div:first-child {
+
+article.contents.image>div {
+    display: table;
+}
+article.contents.image>div>div {
+    display: table-cell;
+    vertical-align: middle;
+}
+article.contents.image.right>div>div:last-child,
+article.contents.image.left>div>div:first-child {
+    width: 30%;
+}
+article.contents.image.right>div>div:last-child {
+    text-align: right;
+}
+article.contents.image.left>div>div:first-child {
+    text-align: left;
+}
+
+article.contents.image.right>div>div:first-child {
     padding-right: 2em;
 }
-article.contents>div>div>p {
+article.contents.image.left>div>div:last-child {
+    padding-left: 2em;
+}
+article.contents.image>div>div>p {
     font-size: 0.8em;
     text-align: justify;
     margin: 0.6em 0;
 }
-article.contents>div>div.image>img {
+article.contents.image.right>div>div:last-child>img,
+article.contents.image.left>div>div:first-child>img {
     width: 85%;
     border-radius: 7px;
 }
 
 @media screen and (max-width: 650px) {
-    article.contents>div>div {
+    article.contents.image>div>div {
         display: block;
         padding: 0;
     }
-    article.contents>div>div.image {
+    article.contents.image>div>div.image {
         margin-top: 2em;
         width: 100%;
     }
-    article.contents>div>div.image>img {
+    article.contents.image>div>div.image>img {
         width: 100%;
     }
 }
