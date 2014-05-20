@@ -1,6 +1,6 @@
 article.contents {
     padding: 0 2em;
-    margin: 4em 0;
+    margin: 3em 0;
 }
 article.contents>h1 {
     font-size: 1.3em;
@@ -45,13 +45,15 @@ article.contents.image.left>div>div:first-child>img {
 @media screen and (max-width: 650px) {
     article.contents.image>div>div {
         display: block;
-        padding: 0;
+        padding: 0 !important;
     }
-    article.contents.image>div>div.image {
+    article.contents.image.right>div>div:last-child,
+    article.contents.image.left>div>div:first-child {
+        text-align: center;
         margin-top: 2em;
         width: 100%;
     }
-    article.contents.image>div>div.image>img {
+    article.contents.image>div>div>img {
         width: 100%;
     }
 }
