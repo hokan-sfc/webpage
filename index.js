@@ -1,4 +1,5 @@
 (function(){
+    'use strict'
     var loadEvent = function(){
         var iPad = /iPad/.test(navigator.userAgent);
         if(iPad){

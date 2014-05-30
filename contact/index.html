@@ -13,12 +13,16 @@
 
         <!-- Style sheets -->
         <link rel="stylesheet" type="text/css" href="../lib/normalize.css">
+        <link rel="stylesheet" type="text/css" href="../lib/glyphicons/css/glyphicons.css">
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito:300|Open+Sans:600">
         <link rel="stylesheet" type="text/css" href="../shared/css/common.css">
         <link rel="stylesheet" type="text/css" href="../shared/css/navigation.css">
         <link rel="stylesheet" type="text/css" href="../shared/css/contents.css">
         <link rel="stylesheet" type="text/css" href="../shared/css/footer.css">
         <link rel="stylesheet" type="text/css" href="index.css">
+
+        <!-- JavaScript -->
+        <script type="text/javascript" src="index.js"></script>
 
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -43,6 +47,14 @@
 
             <section class="catch">
                 <h1>C<span>ONTACT</span></h1>
+            </section>
+
+            <section id="flash" class="error">
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                <div>
+                    <p>メールアドレスの形式が正しくないため、送信を中止しました。</p>
+                    <p>入力されたアドレスを再度ご確認の上、もう一度送信をお試しください。</p>
+                </div>
             </section>
 
             <article class="contents form">

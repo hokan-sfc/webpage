@@ -2,6 +2,39 @@
     background-image: url("./img/catch.jpg");
 }
 
+#flash {
+    display: table;
+    color: #fff;
+    font-size: 1em;
+    margin: 1em auto;
+    padding: 1em;
+    border-radius: 5px;
+}
+#flash.success {
+    background-color: #27ae60;
+}
+#flash.warning {
+    background-color: #f39c12;
+}
+#flash.error {
+    background-color: #b0291b;
+}
+#flash>* {
+    display: table-cell;
+    vertical-align: middle;
+}
+#flash>span {
+    font-size: 3em;
+    text-align: center;
+    width: 1em;
+    height: 1em;
+}
+#flash>div {
+    font-size: 0.9em;
+    text-align: left;
+    padding-left: 2em;
+}
+
 article.contents.form>form>input,
 article.contents.form>form>textarea {
     border: 1px solid #999;
