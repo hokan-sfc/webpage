@@ -12,5 +12,5 @@
     mb_internal_encoding('UTF-8');
     mb_send_mail($to, $subject, $body, $header);
 
-    header('Location: index.html');
+    header('Location: .');
 ?>
