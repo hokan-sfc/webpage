@@ -20,17 +20,20 @@
         /*
          * 存在のバリデーション
          */
-        if(empty(trim($name)) && $name != '0'){
+        $trimmed = trim($name);
+        if(empty($trimmed) && $name != '0'){
             $error;
             $error['message'] = '<p>お名前が入力されていないため、送信を中止しました。<br />お名前を入力された上で、もう一度送信をお試しください。</p>';
             return $error;
         }
-        if(empty(trim($email)) && $message != '0'){
+        $trimmed = trim($email);
+        if(empty($trimmed) && $message != '0'){
             $error;
             $error['message'] = '<p>メールアドレスが入力されていないため、送信を中止しました。<br />メールアドレスを入力された上で、もう一度送信をお試しください。</p>';
             return $error;
         }
-        if(empty(trim($message)) && $message != '0'){
+        $trimmed = trim($message);
+        if(empty($trimmed) && $message != '0'){
             $error;
             $error['message'] = '<p>お問い合せ内容が入力されていないため、送信を中止しました。<br />お問い合せ内容を入力された上で、もう一度送信をお試しください。</p>';
             return $error;
