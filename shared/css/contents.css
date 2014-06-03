@@ -23,13 +23,8 @@ article.contents.image>div>div {
 }
 article.contents.image.right>div>div:last-child,
 article.contents.image.left>div>div:first-child {
-    width: 30%;
-}
-article.contents.image.right>div>div:last-child {
-    text-align: right;
-}
-article.contents.image.left>div>div:first-child {
-    text-align: left;
+    width: 40%;
+    text-align: center;
 }
 
 article.contents.image.right>div>div:first-child {
@@ -43,7 +38,9 @@ article.contents.image>div>div>p {
 }
 article.contents.image.right>div>div:last-child>img,
 article.contents.image.left>div>div:first-child>img {
-    width: 85%;
+    display: inline-block;
+    height: 13em;
+    max-width: 85%;
     border-radius: 7px;
 }
 
