@@ -16,6 +16,7 @@ article.contents p {
  */
 article.contents.image>div {
     display: table;
+    width: 100%;
 }
 article.contents.image>div>div {
     display: table-cell;
@@ -39,8 +40,8 @@ article.contents.image>div>div>p {
 article.contents.image.right>div>div:last-child>img,
 article.contents.image.left>div>div:first-child>img {
     display: inline-block;
-    height: 13em;
     max-width: 85%;
+    max-height: 13em;
     border-radius: 7px;
 }
 
