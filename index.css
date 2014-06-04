@@ -104,13 +104,13 @@
     }
 }
 #about {
-    background-image: url("../img/nav_about.jpg");
+    background-image: url("img/nav_about.jpg");
 }
 #contact {
-    background-image: url("../img/nav_contact.jpg");
+    background-image: url("img/nav_contact.jpg");
 }
 #blog {
-    background-image: url("../img/nav_blog.jpg");
+    background-image: url("img/nav_blog.jpg");
 }
 
 /*
