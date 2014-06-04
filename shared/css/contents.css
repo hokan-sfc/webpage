@@ -17,6 +17,7 @@ article.contents p {
 article.contents.image>div {
     display: table;
     width: 100%;
+    margin: 0 0 3em 0;
 }
 article.contents.image>div>div {
     display: table-cell;
@@ -43,6 +44,25 @@ article.contents.image.left>div>div:first-child>img {
     max-width: 85%;
     max-height: 13em;
     border-radius: 7px;
+}
+
+/*
+ * Table
+ */
+article.contents.table>table {
+    width: 90%;
+    font-size: 0.8em;
+    margin: 0 auto 3em auto;
+    box-shadow: 0 0 2px 0 #aaa;
+}
+article.contents.table>table>tbody>tr {
+}
+article.contents.table>table>tbody>tr:nth-of-type(2n) {
+    background-color: #ecf0f1;
+}
+article.contents.table>table>tbody>tr>* {
+    padding: 0.6em;
+    border: 2px solid #fff;
 }
 
 /*

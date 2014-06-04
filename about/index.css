@@ -1,3 +1,15 @@
 #main>section.catch {
     background-image: url("./img/catch.jpg");
 }
+
+#summary {
+    font-size: 0.8em;
+    width: 100%;
+}
+#summary>tbody>tr>* {
+    vertical-align: top;
+    padding: 0.6em 0;
+}
+#summary>tbody>tr>th {
+    width: 8em;
+}
