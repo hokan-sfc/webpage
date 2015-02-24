@@ -118,7 +118,7 @@
                 <h1><a href="/">星空観賞サークル</a></h1>
                 <nav>
                     <ul>
-                        <li><a href="../about">ABOUT</a></li>
+                        <li><a href="../about/">ABOUT</a></li>
                         <li><a href="http://hokan-sfc.tumblr.com">BLOG</a></li>
                         <li class="active">CONTACT</li>
                     </ul>
