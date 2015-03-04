@@ -1,8 +1,8 @@
 @font-face {
     font-family: "mplus-1c-light";
-    src: url("/lib/external/mplus/font/font/mplus-1c-light-sub.eot") format("eot");
-    src: url("/lib/external/mplus/font/font/mplus-1c-light-sub.woff") format("woff");
-    src: url("/lib/external/mplus/font/font/mplus-1c-light-sub.ttf") format("truetype");
+    src: url("../../../external/mplus/font/mplus-1c-light-sub.eot") format("eot");
+    src: url("../../../external/mplus/font/mplus-1c-light-sub.woff") format("woff");
+    src: url("../../../external/mplus/font/mplus-1c-light-sub.ttf") format("truetype");
 }
 
 #main>header {
