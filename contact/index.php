@@ -43,15 +43,15 @@ class IndexHandler extends RESTHandler {
             if(!preg_match($html5_email_reg, $email)){
                 $this->render_get_with_error_flash('<p>メールアドレスの形式が正しくないため、送信を中止しました。<br />入力されたアドレスを再度ご確認の上、もう一度送信をお試しください。</p>');
             } else {
+                $this->send($this->name, $email, $this->message);
+                $this->name = NULL;
+                $this->email = NULL;
+                $this->message = NULL;
                 $this->render_get_with_flash(
                     'success',
                     'ok-sign',
                     '<p>お問い合わせを承りました。<br />返信のあるまで今しばらくお待ちください。'
                 );
-                $this->send($this->name, $email, $this->message);
-                $this->name = NULL;
-                $this->email = NULL;
-                $this->message = NULL;
             }
         }
     }
