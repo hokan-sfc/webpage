@@ -1,0 +1,6 @@
+<Files ~ "^\.htaccess$">
+    deny from all
+</Files>
+<Files ~ "\.(php|html)$">
+    deny from all
+</Files>
