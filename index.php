@@ -16,6 +16,7 @@ class IndexHandler extends RESTHandler {
     }
 }
 
-(new IndexHandler)->handle();
+$h = new IndexHandler();
+$h->handle();
 
 ?>
