@@ -2,10 +2,6 @@
     background-image: url("./img/catch.jpg");
 }
 
-.hide {
-    display: none !important;
-}
-
 #flash {
     display: table;
     color: #fff;
