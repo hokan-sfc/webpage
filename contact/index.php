@@ -2,7 +2,7 @@
 
 require_once dirname(__FILE__).'/../lib/internal/template/rest_handler.php';
 
-class IndexHandler extends RESTHandler {
+class Handler extends RESTHandler {
     private $name;
     private $email;
     private $message;
@@ -80,7 +80,7 @@ class IndexHandler extends RESTHandler {
     }
 }
 
-$h = new IndexHandler();
+$h = new Handler();
 $h->handle();
 
 ?>
