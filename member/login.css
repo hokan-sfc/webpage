@@ -1,0 +1,9 @@
+#main>section.catch {
+    background-image: url("img/catch.jpg");
+}
+
+#login-buttons>div {
+    width: 100%;
+    text-align: center;
+    margin: 1.5em;
+}

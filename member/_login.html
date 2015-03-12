@@ -1,0 +1,36 @@
+<header>
+    <h1><a href="..">星空観賞サークル</a></h1>
+    <nav>
+        <ul>
+            <li><a href="../about/">ABOUT</a></li>
+            <li><a href="http://hokan-sfc.tumblr.com">BLOG</a></li>
+            <li><a href="../contact/">CONTACT</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="catch">
+    <h1>L<span>OGIN</span></h1>
+</section>
+
+<section id="login-buttons" class="contents">
+    <p>メンバーページの閲覧にはログインが必要です。</p>
+    <p>あなたが星空鑑賞サークルのメンバーである場合は、Yahoo JapanまたはGoogleのアカウントでログインを行ってください。</p>
+
+    <div>
+        <span class="yconnectLogin"></span>
+    </div>
+    <div>
+        <span id="signinButton">
+          <span
+            class="g-signin"
+            data-height="tall"
+            data-callback="googleCallback"
+            data-clientid="<?= $google_client_id ?>"
+            data-cookiepolicy="single_host_origin"
+            data-requestvisibleactions="http://schemas.google.com/AddActivity"
+            data-scope="https://www.googleapis.com/auth/plus.login">
+          </span>
+        </span>
+    </div>
+</section>
