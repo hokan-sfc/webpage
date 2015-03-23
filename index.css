@@ -163,6 +163,7 @@
     font-family: "Nunito", sans-serif;
     font-size: 2.3em;
     color: #fff;
+    text-shadow: 0 0 0.5em #444;
     /* for safari's GPU probrem */
     -webkit-font-smoothing: antialiased;
 }
@@ -174,10 +175,23 @@
     font-size: 1.1em;
     padding-bottom: 1em;
     text-align: center;
+    text-shadow: 0 0 0.5em #444;
 }
 #col2>section>div>section>p {
-    color: #1c2e40;
+    color: #fff;
     font-size: 0.8em;
     text-indent: 1em;
     text-align: justify;
+    text-shadow: 0 0 0.5em #444;
+}
+#col2>section>div>section>div {
+    width: 100%;
+    padding: 1.5em 0;
+    text-align: center;
+}
+#col2>section>div>section>div>a {
+    color: #fff;
+    padding: 1em 1.5em;
+    background-color: #5EC84E;
+    border-radius: 7px;
 }
