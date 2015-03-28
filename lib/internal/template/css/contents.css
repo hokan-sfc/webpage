@@ -10,6 +10,14 @@ article.contents p {
     font-size: 0.8em;
     text-align: justify;
 }
+article.contents a {
+    color: #444;
+    text-decoration: underline;
+}
+article.contents a:hover {
+    color: #aaa;
+    text-decoration: underline;
+}
 
 /*
  * Text with image
