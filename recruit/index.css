@@ -1,0 +1,40 @@
+#main>section.catch {
+    background-image: url("./img/catch.jpg");
+}
+
+div.cards {
+    display: table;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 2em 1.5em;
+    width: 100%;
+}
+div.cards>article {
+    display: table-cell;
+    vertical-align: top;
+    background-image: url("img/background_sky.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    border-radius: 7px;
+    padding: 0.5em;
+}
+div.cards>article>h1 {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+div.cards>article>table {
+    font-size: 0.8em;
+}
+div.cards>article>table th {
+    padding-right: 1.5em;
+}
+@media screen and (max-width: 580px) {
+    div.cards>article {
+        display: block;
+    }
+    div.cards>article+article {
+        margin-top: 1em;
+    }
+}
