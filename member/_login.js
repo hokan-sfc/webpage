@@ -1,5 +1,15 @@
 <script type="text/javascript">
 function googleCallback (authResult) {
+    if (authResult['access_token']) {
+        console.log(authResult['access_token']);
+        console.log(authResult['id_token']);
+    } else if (authResult['error']) {
+        if (authResult['error'] == 'access_denied') {
+            flashWarning('アプリケーションの連携を行わないとログインすることはできません。');
+        } else {
+            flashError('認証エラーが発生しました。再度ログインをお試しいただき、何度も同様のエラーが出る場合はお手数ですが上部CONTACTからその旨をお問い合わせください。');
+        }
+    }
 }
 
 function flashError (message) {
@@ -43,9 +53,11 @@ window.yconnectInit = function() {
             nonce: "<?= $nonce ?>"
         },
         onError: function(res) {
-            window.alert('通信エラーが発生しました。お手数をお掛けしますが、再度ログインをお試しください。');
+            flashError('認証エラーが発生しました。再度ログインをお試しいただき、何度も同様のエラーが出る場合はお手数ですが上部CONTACTからその旨をお問い合わせください。');
         },
-        onCancel: function(){}
+        onCancel: function(){
+            flashWarning('アプリケーションの連携を行わないとログインすることはできません。');
+        }
     });
 };
 
