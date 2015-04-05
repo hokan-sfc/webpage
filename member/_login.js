@@ -1,8 +1,16 @@
 <script type="text/javascript">
 function googleCallback (authResult) {
     if (authResult['access_token']) {
+        hideFlash();
         console.log(authResult['access_token']);
         console.log(authResult['id_token']);
+        gapi.auth.setToken(authResult);
+        gapi.client.load('oauth2', 'v2', function () {
+            var r = gapi.client.oauth2.userinfo.get();
+            r.execute(function (info) {
+                console.log(info);
+            });
+        });
     } else if (authResult['error']) {
         if (authResult['error'] == 'access_denied') {
             flashWarning('アプリケーションの連携を行わないとログインすることはできません。');
