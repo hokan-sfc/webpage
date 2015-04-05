@@ -20,6 +20,42 @@ article.contents a:hover {
 }
 
 /*
+ * Flash
+ */
+section.flash {
+    display: table;
+    color: #fff;
+    font-size: 1em;
+    margin: 1em auto;
+    padding: 1em;
+    border-radius: 5px;
+}
+section.flash.success {
+    background-color: #27ae60;
+}
+section.flash.warning {
+    background-color: #f39c12;
+}
+section.flash.error {
+    background-color: #b0291b;
+}
+section.flash>* {
+    display: table-cell;
+    vertical-align: middle;
+}
+section.flash>span {
+    font-size: 3em;
+    text-align: center;
+    width: 1em;
+    height: 1em;
+}
+section.flash>div {
+    font-size: 0.9em;
+    text-align: left;
+    padding-left: 2em;
+}
+
+/*
  * Text with image
  */
 article.contents.image>div {

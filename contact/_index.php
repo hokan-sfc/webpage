@@ -14,7 +14,7 @@
 </section>
 
 <?php if(isset($flash)): ?>
-<section id="flash" class="<?= $flash['class'] ?>">
+<section class="flash <?= $flash['class'] ?>">
     <span class="glyphicon glyphicon-<?= $flash['icon'] ?>"></span>
     <div><?= $flash['message'] ?></div>
 </section>
