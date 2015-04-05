@@ -15,7 +15,7 @@ class Handler extends RESTHandler {
         $state = $_SESSION['YAHOO_STATE'];
         $nonce = $_SESSION['YAHOO_NONCE'];
 
-        $tokens = $this->get_tokens($client, $state);
+        $tokens = $this->get_tokens($c->yahoo_callback(), $client, $state);
         if (!$tokens) {
             // TODO error
             echo 'error with get_tokens';
@@ -42,13 +42,13 @@ class Handler extends RESTHandler {
         var_dump($user_info);
     }
 
-    private function get_tokens($client, $state) {
+    private function get_tokens($callback, $client, $state) {
         try {
             $code = $client->getAuthorizationCode($state);
             if (!$code) {
                 return FALSE;
             }
-            $client->requestAccessToken($c->yahoo_callback(), $code);
+            $client->requestAccessToken($callback, $code);
             return array(
                 'access_token' => $client->getAccessToken(),
                 'refresh_token' => $client->getRefreshToken()
@@ -60,7 +60,7 @@ class Handler extends RESTHandler {
 
     private function get_id_token($client, $nonce) {
         try {
-            if (!$client->verifyIdToken($nonce) {
+            if (!$client->verifyIdToken($nonce)) {
                 return FALSE;
             }
             return $client->getIdToken();
