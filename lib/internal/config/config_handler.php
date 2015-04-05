@@ -9,7 +9,7 @@ class Config {
     private $c;
 
     function __construct() {
-        $this->c = include(dirname(__FILE__).'/config.php');
+        $this->c = include(__DIR__.'/config.php');
     }
 
     function yahoo_client_id() {

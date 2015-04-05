@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__).'/../lib/internal/template/rest_handler.php';
+require_once __DIR__.'/../lib/internal/template/rest_handler.php';
 
 class Handler extends RESTHandler {
     function __construct() {

@@ -60,7 +60,7 @@ class RESTHandlerTest extends PHPUnit_Framework_TestCase {
         ob_start();
         (new AllForbiddenHandler())->handle();
         $rendered = ob_get_clean();
-        $expect = file_get_contents(dirname(__FILE__).'/_404.html');
+        $expect = file_get_contents(__DIR__.'/_404.html');
         $this->assertTrue(strpos($rendered, $expect) !== FALSE);
     }
 
@@ -137,7 +137,7 @@ class RESTHandlerTest extends PHPUnit_Framework_TestCase {
         ob_start();
         $h->render_not_found_tester();
         $rendered = ob_get_clean();
-        $expect = file_get_contents(dirname(__FILE__).'/_404.html');
+        $expect = file_get_contents(__DIR__.'/_404.html');
         $this->assertTrue(strpos($rendered, $expect) !== FALSE);
     }
 

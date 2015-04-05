@@ -1,10 +1,6 @@
 <?php
 
-function _abs_path($file_name) {
-    return dirname(__FILE__).'/'.$file_name;
-}
-
-require_once _abs_path('parameter.php');
+require_once __DIR__.'/parameter.php';
 
 class RESTHandler {
     const METHOD_GET = 'GET';
@@ -62,12 +58,12 @@ class RESTHandler {
         if (count($params) > 0) {
             extract($params);
         }
-        include _abs_path('template.php');
+        include __DIR__.'/template.php';
     }
 
     protected function render_not_found() {
-        $body = _abs_path('_404.html');
-        include _abs_path('template.php');
+        $body = __DIR__.'/_404.html';
+        include __DIR__.'/template.php';
     }
 
     protected function sanitize($raw) {
