@@ -2,6 +2,30 @@
 function googleCallback (authResult) {
 }
 
+function flashError (message) {
+    hideFlash();
+    showFlash('error', 'exclamation-sign', message);
+}
+
+function flashWarning (message) {
+    hideFlash();
+    showFlash('warning', 'info-sign', message);
+}
+
+function showFlash(type, icon, message) {
+    var flash = document.getElementsByClassName('flash')[0];
+    flash.classList.remove('hidden');
+    flash.classList.add(type);
+    flash.getElementsByTagName('span')[0].classList.add('glyphicon-' + icon);
+    flash.getElementsByTagName('div')[0].innerHTML = message;
+}
+
+function hideFlash() {
+    var flash = document.getElementsByClassName('flash')[0];
+    flash.className = 'flash hidden';
+    flash.getElementsByTagName('span')[0].className = 'glyphicon';
+}
+
 window.yconnectInit = function() {
     YAHOO.JP.yconnect.Authorization.init({
         button: {
