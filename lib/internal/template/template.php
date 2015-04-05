@@ -8,6 +8,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>星空観賞サークル</title>
 
+<!-- Humans Text -->
+<link rel="author" type="text/plain" href="/humans.txt">
+
 <!-- Fabicon -->
 <link rel="icon" type="image/vnd.microsoft.icon" href="/lib/internal/template/img/favicon.ico">
 

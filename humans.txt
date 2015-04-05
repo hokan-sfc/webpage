@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    出水厚輝 -- Engineer, Designer -- demmys.atsuki[at]gmail.com
+
+# THANKS
+
+    西啓介
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3, PHP, JavaScript
+    Apache Server Configs, jQuery, Normalize.css
