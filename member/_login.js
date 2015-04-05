@@ -47,18 +47,18 @@ function hideFlash() {
 window.yconnectInit = function() {
     YAHOO.JP.yconnect.Authorization.init({
         button: {
-            format: "image",
-            type: "a",
+            format: 'image',
+            type: 'a',
             width: 166,
             height: 44,
-            className: "yconnectLogin"
+            className: 'yconnectLogin'
         },
         authorization: {
-            clientId: "<?= $yahoo_client_id ?>",
-            redirectUri: "<?= $yahoo_callback ?>",
-            scope: "openid email profile address",
-            state: "<?= $state ?>",
-            nonce: "<?= $nonce ?>"
+            clientId: '<?= $yahoo_client_id ?>',
+            redirectUri: '<?= $yahoo_callback ?>',
+            scope: 'openid email profile address',
+            state: '<?= $state ?>',
+            nonce: '<?= $nonce ?>'
         },
         onError: function(res) {
             flashError('認証エラーが発生しました。再度ログインをお試しいただき、何度も同様のエラーが出る場合はお手数ですが上部CONTACTからその旨をお問い合わせください。');
@@ -71,8 +71,8 @@ window.yconnectInit = function() {
 
 (function(){
     // Yahoo API
-    var fs = document.getElementsByTagName("script")[0], s = document.createElement("script");
-    s.setAttribute("src", "https://s.yimg.jp/images/login/yconnect/auth/1.0.0/auth-min.js");
+    var fs = document.getElementsByTagName('script')[0], s = document.createElement('script');
+    s.setAttribute('src', 'https://s.yimg.jp/images/login/yconnect/auth/1.0.0/auth-min.js');
     fs.parentNode.insertBefore(s, fs);
 
     // Google API
