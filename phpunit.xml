@@ -1,8 +1,14 @@
 <phpunit colors="true" bootstrap="bootstrap.php">
+    <php>
+        <env name="PHP_ENV" value="test" />
+    </php>
     <testsuites>
         <testsuite name="template">
             <file>lib/internal/template/parameter_test.php</file>
             <file>lib/internal/template/rest_handler_test.php</file>
+        </testsuite>
+        <testsuite name="model">
+            <file>lib/internal/model/model_test.php</file>
         </testsuite>
     </testsuites>
 </phpunit>
