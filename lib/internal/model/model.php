@@ -3,14 +3,14 @@
 require_once __DIR__.'/../config/config_handler.php';
 
 class Model {
-    private $pdo;
-    private $table;
-    private $columns;
-    private $id;
+    private $_table;
+    private $_id;
+    protected $pdo;
+    protected $columns;
 
     function __construct($table, $columns) {
         $this->pdo = new PDO((new Config())->sqlite());
-        $this->table = $table;
+        $this->_table = $table;
         $this->columns = $columns;
     }
 
@@ -19,10 +19,10 @@ class Model {
     }
 
     function loadByID($id) {
-        if ($this->id) {
+        if ($this->_id) {
             return FALSE;
         }
-        $this->id = $id;
+        $this->_id = $id;
         $data = $this->fetch();
         foreach ($data as $k => $v) {
             if ($k != 'id') {
@@ -33,7 +33,7 @@ class Model {
     }
 
     function reload() {
-        if (!$this->id) {
+        if (!$this->_id) {
             return FALSE;
         }
         $data = $this->fetch();
@@ -45,14 +45,14 @@ class Model {
 
     function save() {
         $keys = array_keys($this->columns);
-        if ($this->id) {
+        if ($this->_id) {
             $columns = implode(',', $keys);
             $values = implode(", :", $keys);
-            $stm = "insert into $this->table ($columns) values (:$values);";
+            $stm = "insert into $this->_table ($columns) values (:$values);";
         } else {
             $bind = function ($k) { return "$k = :$k"; };
             $binds = implode(', ', array_map($bind, $keys));
-            $stm = "update $this->table set $binds whre id = :id;";
+            $stm = "update $this->_table set $binds whre id = :id;";
         }
         $sql = $this->prepare_with_id($stm);
         foreach ($this->columns as $k => $v) {
@@ -62,32 +62,40 @@ class Model {
         if (!$sql->execute()) {
             return FALSE;
         }
-        $this->id = $this->pdo->lastInsertId();
+        $this->_id = $this->pdo->lastInsertId();
         return $this->reload();
     }
 
     function destroy() {
-        if (!$this->id) {
+        if (!$this->_id) {
             return FALSE;
         }
-        $stm = "delete from $this->table where id = :id;";
+        $stm = "delete from $this->_table where id = :id;";
         $sql = $this->prepare_with_id($stm);
         return $sql->execute();
     }
 
     private function prepare_with_id($stm) {
         $sql = $this->pdo->prepare($stm);
-        $sql->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $sql->bindValue(':id', $this->_id, PDO::PARAM_INT);
         return $sql;
     }
 
     private function fetch() {
-        $stm = "select * from $this->table where id = :id;";
+        $stm = "select * from $this->_table where id = :id;";
         $sql = $this->prepare_with_id($stm);
         if (!$sql->execute()) {
             return FALSE;
         }
         return $sql->fetch(PDO::FETCH_ASSOC);
+    }
+
+    protected function id() {
+        return $this->_id;
+    }
+
+    protected function table() {
+        return $this->_table;
     }
 }
 
