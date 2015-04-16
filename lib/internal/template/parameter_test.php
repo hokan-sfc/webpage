@@ -17,6 +17,7 @@ class ParameterTest extends PHPUnit_Framework_TestCase {
      */
     function testGetStringWithInvalidKeyRequest($key, $data) {
         $p = new Parameter($data);
+        // '' の場合にもassertionを通すために == で評価
         $this->assertTrue($p->get_string($key) == FALSE);
     }
 
@@ -32,6 +33,7 @@ class ParameterTest extends PHPUnit_Framework_TestCase {
      */
     function testGetArrayWithInvalidKeyRequest($key, $data) {
         $p = new Parameter($data);
+        // array() の場合にもassertionを通すために == で評価
         $this->assertTrue($p->get_array($key) == FALSE);
     }
 

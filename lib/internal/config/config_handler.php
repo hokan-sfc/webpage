@@ -22,7 +22,7 @@ class Config {
     }
 
     function sqlite() {
-        if ($this->env == 'test') {
+        if ($this->env === 'test') {
             $path = '.'.$this->db_file();
         } else {
             $path = $_SERVER['DOCUMENT_ROOT'].$this->db_file();

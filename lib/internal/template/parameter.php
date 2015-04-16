@@ -42,7 +42,7 @@ class Parameter {
         if (!is_array($value) || !isset($value['error'])) {
             return FALSE;
         }
-        if ($value['error'] != UPLOAD_ERR_OK) {
+        if ($value['error'] !== UPLOAD_ERR_OK) {
             return FALSE;
         }
         return $value;

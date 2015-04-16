@@ -25,7 +25,7 @@ class Model {
         $this->_id = $id;
         $data = $this->fetch();
         foreach ($data as $k => $v) {
-            if ($k != 'id') {
+            if ($k !== 'id') {
                 $this->columns[$k] = $v;
             }
         }

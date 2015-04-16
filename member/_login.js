@@ -12,7 +12,7 @@ function googleCallback (authResult) {
             });
         });
     } else if (authResult['error']) {
-        if (authResult['error'] == 'access_denied') {
+        if (authResult['error'] === 'access_denied') {
             flashWarning('アプリケーションの連携を行わないとログインすることはできません。');
         } else {
             flashError('認証エラーが発生しました。再度ログインをお試しいただき、何度も同様のエラーが出る場合はお手数ですが上部CONTACTからその旨をお問い合わせください。');
