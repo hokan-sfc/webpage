@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'/../../../vendor/autoload.php';
+require_once __DIR__.'/../../external/yconnect/autoload.php';
 
 use YConnect\Credential\ClientCredential;
 use YConnect\YConnectClient;

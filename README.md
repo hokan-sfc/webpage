@@ -61,14 +61,7 @@ $ cd /path/to/proper/directory
 $ git clone git@github.com:hokan-sfc/webpage.git
 ```
 
-#### 7. 依存ライブラリのインストール
-
-依存ライブラリの管理にはComposerを用いていますので、以下のコマンドを実行して依存ライブラリをダウンロードします。
-```
-$ php composer.phar install
-```
-
-#### 8. 設定ファイルの用意
+#### 7. 設定ファイルの用意
 
 実行時に使用するYahoo!Japan及びGoogleのOAuth認証用キーやDBMSに関する情報などは`lib/internal/config/config.php`ファイルに記述します。  
 このファイルは外部に公開すべきでない重要な情報を含むため、Githubでは共有されていません。実行のためには当ファイルを作成する必要がありますので、以下のコマンドを実行した後必要箇所を埋めて用意してください。
@@ -81,7 +74,7 @@ $ cp config_default.php config.php
 
 設定項目で不明な箇所があれば、きっと本番環境で現在実際に稼働しているメンバーページにヒントが書かれているでしょう。
 
-#### 9. DBの用意
+#### 8. DBの用意
 
 DBMSにはSQLite3を用いているため、DBを用意するためにはsqlite3コマンドが必要となります。  
 実際のDBの用意は`db/schema.sql`ファイルを実行するだけで事足ります。
@@ -96,7 +89,7 @@ $ sqlite3 db/database.data < db/schema.sql
 もし作成したDBが正しく動作することなどを確かめたければ、sqlite3コマンドを用いてDBの中を見てみるといいでしょう。  
 sqlite3コマンドの使い方についてはmanやWeb上の資料に十分記されています。
 
-#### 10. Nginxの設定
+#### 9. Nginxの設定
 
 作成したコピーをNginxとPHPを用いて表示できるように設定を行います。  
 `/usr/local/etc/nginx/nginx.conf`ファイルを編集し、以下のようにしてください。  
@@ -178,7 +171,7 @@ $ launchctl start homebrew.mxcl.nginx
 
 いずれの理由でもGoogleでの検索などを駆使することで解決できると思いますので、表示されているエラーや確認可能なステータスなどをよく読み、もし本ドキュメントに修正が必要であれば随時修正するようにしてください。
 
-#### 11. GitとGithubを用いた開発
+#### 10. GitとGithubを用いた開発
 
 本レポジトリで管理されているWebサイトはGitとGithubを用いて開発されるべきです。  
 GitやGithubの使い方について解説した資料はWeb上でも書籍としてでも山のようにありますので、これを活用し、ぜひよくバージョン管理された安全な開発を行ってください。
