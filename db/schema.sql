@@ -14,5 +14,9 @@ create table if not exists members (
     entrance           timestamp,
     graduation         timestamp,
     created_at         timestamp default current_timestamp,
-    updated_at         timestamp
+    updated_at         timestamp default current_timestamp
 );
+create trigger if not exists members_updated_at after update on members for each row
+begin
+    update members set updated_at = current_timestamp where id = old.id;
+end;
