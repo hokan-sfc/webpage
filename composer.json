@@ -1,0 +1,12 @@
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/yahoojapan/yconnect-php-sdk"
+        }
+    ],
+    "require": {
+        "yahoojapan/yconnect-php-sdk": "dev-master",
+        "google/apiclient": "1.0.*@beta"
+    }
+}
