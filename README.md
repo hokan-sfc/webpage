@@ -6,6 +6,8 @@
 
 ### Mac OS X上での開発環境構築方法
 
+1~5については単にHTTPサーバとPHPをローカルで動かす手順を示したものですので、すでに用意出来ている場合は読み飛ばして構いません。
+
 #### 1. Xcodeのインストール
 
 Mac App Storeより最新版のXcodeをインストールします。
@@ -23,14 +25,14 @@ AppleのデベロッパアカウントはApple IDから無料で作成するこ�
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-#### 4. Nginx, PHP, PHPUnit, Xdebugのインストール
+#### 4. Nginx, PHPのインストール
 
 Homebrewを使用して必要なソフトウェアをインストールします。  
 上手くいかない場合は表示されるエラー内容などをよく読みながら進め、それでもわからない場合はGoogleでエラー文を検索してください。
 
 ```
 $ brew update
-$ brew install nginx php55 phpunit php55-xdebug
+$ brew install nginx php55
 ```
 
 #### 5. Nginx, PHPの自動起動設定と起動
@@ -59,7 +61,35 @@ $ cd /path/to/proper/directory
 $ git clone git@github.com:hokan-sfc/webpage.git
 ```
 
-#### 7. Nginxの設定
+#### 7. 設定ファイルの用意
+
+実行時に使用するYahoo!Japan及びGoogleのOAuth認証用キーやDBMSに関する情報などは`lib/internal/config/config.php`ファイルに記述します。  
+このファイルは外部に公開すべきでない重要な情報を含むため、Githubでは共有されていません。実行のためには当ファイルを作成する必要がありますので、以下のコマンドを実行した後必要箇所を埋めて用意してください。
+
+```
+$ cd /path/to/repogitory
+$ cd lib/internal/config/
+$ cp config_default.php config.php
+```
+
+設定項目で不明な箇所があれば、きっと本番環境で現在実際に稼働しているメンバーページにヒントが書かれているでしょう。
+
+#### 8. DBの用意
+
+DBMSにはSQLite3を用いているため、DBを用意するためにはsqlite3コマンドが必要となります。  
+実際のDBの用意は`db/schema.sql`ファイルを実行するだけで事足ります。
+
+```
+$ cd /path/to/repogitory
+$ sqlite3 db/database.data < db/schema.sql
+```
+
+これで`db/database.data`にDBが用意されました。データファイルの名前は設定ファイルに記述したものとおなじになるように注意してください。
+
+もし作成したDBが正しく動作することなどを確かめたければ、sqlite3コマンドを用いてDBの中を見てみるといいでしょう。  
+sqlite3コマンドの使い方についてはmanやWeb上の資料に十分記されています。
+
+#### 9. Nginxの設定
 
 作成したコピーをNginxとPHPを用いて表示できるように設定を行います。  
 `/usr/local/etc/nginx/nginx.conf`ファイルを編集し、以下のようにしてください。  
@@ -109,11 +139,13 @@ http {
         listen 8000;
     
         location / {
+            # クローンしたディレクトリへのパスを記述する
             root /path/to/local/repogitory/webpage
             index index.html index.php;
         }
     
         location ~ \.php$ {
+            # クローンしたディレクトリへのパスを記述する
             root /path/to/local/repogitory/webpage
             include fastcgi_params;
             fastcgi_pass   127.0.0.1:9000;
@@ -139,7 +171,7 @@ $ launchctl start homebrew.mxcl.nginx
 
 いずれの理由でもGoogleでの検索などを駆使することで解決できると思いますので、表示されているエラーや確認可能なステータスなどをよく読み、もし本ドキュメントに修正が必要であれば随時修正するようにしてください。
 
-#### 8. GitとGithubを用いた開発
+#### 10. GitとGithubを用いた開発
 
 本レポジトリで管理されているWebサイトはGitとGithubを用いて開発されるべきです。  
 GitやGithubの使い方について解説した資料はWeb上でも書籍としてでも山のようにありますので、これを活用し、ぜひよくバージョン管理された安全な開発を行ってください。
@@ -147,8 +179,8 @@ GitやGithubの使い方について解説した資料はWeb上でも書籍と�
 
 ### テストの実行方法
 
-テストには[PHPUnit](https://phpunit.de/index.html)を使用しているので、実行にはこれをインストールする必要があります。  
-また、一部のテストではXdebugエクステンションを使用しているので、完全にテストを実行するためにはこれも必要となります。  
+本Webサイトの中心的な機能には[PHPUnit](https://phpunit.de/index.html)によるテストが付随しています。  
+テストの実行にはPHPUnitとXdebugエクステンションのインストールが必要です。  
 これらはMac OS X環境であれば[Homebrew](http://brew.sh/index_ja.html)でインストールできる他、Linuxなど他の環境でも[PHPUnitのダウンロードページ](https://phpunit.de/getting-started.html)および[Xdebugのダウンロードページ](http://www.xdebug.org/download.php)からダウンロード・インストールして利用できます。  
 テストは単にプロジェクトのルートディレクトリでインストールあるいはダウンロードしたPHPUnitを引数なしで実行するだけで完了します。
 
@@ -157,7 +189,7 @@ $ cd /path/to/repogitory/webpage
 $ phpunit
 ```
 
-また、もしテストのラインカバレッジを知りたい場合には`--coverage-html`オプションを使用することで簡単に可視化することができます。
+また、もしテストコードのカバレッジを知りたい場合には`--coverage-html`オプションを使用することで簡単に可視化することができます。
 
 ```
 $ cd /path/to/repogitory/webpage
@@ -166,3 +198,4 @@ $ phpunit --coverage-html tmp/
 $ open tmp/index.html
 ```
 
+これ以外の使い方やテストの書き方についてはPHPUnitのマニュアルを参照してください。
