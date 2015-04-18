@@ -3,27 +3,32 @@
 require_once __DIR__.'/../config/config_handler.php';
 
 class Model {
+    static private $_pdo;
     private $_table;
     private $_id;
-    protected $pdo;
     protected $columns;
 
-    function __construct($table, $columns) {
-        $this->pdo = new PDO((new Config())->sqlite());
+    function __construct($table, array $columns=array()) {
+        if (is_null(self::$_pdo)) {
+            self::$_pdo = new PDO((new Config())->sqlite());
+        }
         $this->_table = $table;
         $this->columns = $columns;
     }
 
     function __destruct() {
-        $this->pdo = NULL;
+        self::$_pdo = NULL;
     }
 
-    function loadByID($id) {
-        if ($this->_id) {
+    function load_by_id($id) {
+        if (!is_null($this->_id)) {
             return FALSE;
         }
         $this->_id = $id;
         $data = $this->fetch();
+        if (!$data) {
+            return FALSE;
+        }
         foreach ($data as $k => $v) {
             if ($k !== 'id') {
                 $this->columns[$k] = $v;
@@ -33,10 +38,13 @@ class Model {
     }
 
     function reload() {
-        if (!$this->_id) {
+        if (is_null($this->_id)) {
             return FALSE;
         }
         $data = $this->fetch();
+        if (!$data) {
+            return FALSE;
+        }
         foreach ($this->columns as $k => $v) {
             $this->columns[$k] = $data[$k];
         }
@@ -45,24 +53,35 @@ class Model {
 
     function save() {
         $keys = array_keys($this->columns);
-        if ($this->_id) {
+        if (is_null($this->_id)) {
+            // 新しくデータを作成する場合
             $columns = implode(',', $keys);
             $values = implode(", :", $keys);
             $stm = "insert into $this->_table ($columns) values (:$values);";
+            $sql = self::$_pdo->prepare($stm);
         } else {
+            // 既存データを更新する場合
             $bind = function ($k) { return "$k = :$k"; };
             $binds = implode(', ', array_map($bind, $keys));
-            $stm = "update $this->_table set $binds whre id = :id;";
+            $stm = "update $this->_table set $binds where id = :id;";
+            $sql = $this->prepare_with_id($stm);
         }
-        $sql = $this->prepare_with_id($stm);
         foreach ($this->columns as $k => $v) {
-            // PDO::PARAM_INTの指定時でも文字列型はそのまま扱われる
-            $sql->bindValue(":$k", $v, PDO::PARAM_INT);
+            if (is_null($v)) {
+                $type = PDO::PARAM_NULL;
+            } else if (is_string($v)) {
+                $type = PDO::PARAM_STR;
+            } else {
+                $type = PDO::PARAM_INT;
+            }
+            $sql->bindValue(":$k", $v, $type);
         }
         if (!$sql->execute()) {
             return FALSE;
         }
-        $this->_id = $this->pdo->lastInsertId();
+        if (is_null($this->_id)) {
+            $this->_id = self::$_pdo->lastInsertId();
+        }
         return $this->reload();
     }
 
@@ -72,11 +91,13 @@ class Model {
         }
         $stm = "delete from $this->_table where id = :id;";
         $sql = $this->prepare_with_id($stm);
-        return $sql->execute();
+        $res = $sql->execute();
+        $this->_id = NULL;
+        return $res;
     }
 
     private function prepare_with_id($stm) {
-        $sql = $this->pdo->prepare($stm);
+        $sql = self::$_pdo->prepare($stm);
         $sql->bindValue(':id', $this->_id, PDO::PARAM_INT);
         return $sql;
     }
@@ -88,6 +109,10 @@ class Model {
             return FALSE;
         }
         return $sql->fetch(PDO::FETCH_ASSOC);
+    }
+
+    protected function pdo() {
+        return self::$_pdo;
     }
 
     protected function id() {
