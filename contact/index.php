@@ -13,11 +13,16 @@ class Handler extends RESTHandler {
     }
 
     protected function get(Parameter $params) {
+        $shown = False;
+        if (file_exists('shown')) {
+            $shown = True;
+        }
         $this->render(
             '_index.php',
             $this->create_css_include_tag('index.css'),
             NULL,
             array(
+                'shown' => $shown,
                 'name' => $this->name,
                 'email' => $this->email,
                 'message' => $this->message,

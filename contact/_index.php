@@ -9,9 +9,15 @@
     </nav>
 </header>
 
+<?php if($shown): ?>
 <section class="catch">
     <h1>C<span>ONTACT</span></h1>
 </section>
+<?php else: ?>
+<section class="catch" onclick="location.href = '/contact/dropped_hint.php'">
+    <h1>C<span>ONTACT</span></h1>
+</section>
+<?php endif; ?>
 
 <?php if(isset($flash)): ?>
 <section class="flash <?= $flash['class'] ?>">
