@@ -9,19 +9,19 @@
 <title>星空観賞サークル</title>
 
 <!-- Humans Text -->
-<link rel="author" type="text/plain" href="./humans.txt">
+<link rel="author" type="text/plain" href="/~phi/hokan/webpage/humans.txt">
 
 <!-- Fabicon -->
-<link rel="icon" type="image/vnd.microsoft.icon" href="./lib/internal/template/img/favicon.ico">
+<link rel="icon" type="image/vnd.microsoft.icon" href="/~phi/hokan/webpage/lib/internal/template/img/favicon.ico">
 
 <!-- Style sheets -->
-<link rel="stylesheet" type="text/css" href="./lib/external/normalize/css/normalize.css">
+<link rel="stylesheet" type="text/css" href="/~phi/hokan/webpage/lib/external/normalize/css/normalize.css">
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito:300">
-<link rel="stylesheet" type="text/css" href="./lib/external/glyphicons/css/glyphicons.css">
-<link rel="stylesheet" type="text/css" href="./lib/internal/template/css/navigation.css">
-<link rel="stylesheet" type="text/css" href="./lib/internal/template/css/contents.css">
-<link rel="stylesheet" type="text/css" href="./lib/internal/template/css/common.css">
-<link rel="stylesheet" type="text/css" href="./lib/internal/template/css/footer.css">
+<link rel="stylesheet" type="text/css" href="/~phi/hokan/webpage/lib/external/glyphicons/css/glyphicons.css">
+<link rel="stylesheet" type="text/css" href="/~phi/hokan/webpage/lib/internal/template/css/navigation.css">
+<link rel="stylesheet" type="text/css" href="/~phi/hokan/webpage/lib/internal/template/css/contents.css">
+<link rel="stylesheet" type="text/css" href="/~phi/hokan/webpage/lib/internal/template/css/common.css">
+<link rel="stylesheet" type="text/css" href="/~phi/hokan/webpage/lib/internal/template/css/footer.css">
 <?php   if(isset($stylesheets)): ?>
 <?php       if(file_exists($stylesheets)): ?>
 <?php           include $stylesheets ?>
